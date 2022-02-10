@@ -4,18 +4,26 @@ import { ShoppingCart } from '@material-ui/icons';
 import { Link, useLocation } from 'react-router-dom';
 import styled from "styled-components";
 
-import logo from '../../assets/darkMeowLogo.png';
+import logo from '../../assets/waterDropLogo.png';
 import useStyles from './styles';
 
 
-const Links = styled.div`
-
-`
 
 const NavBarCenter = styled.div`
   display: flex;
   width: 400px;
-  justify-content: center;
+  h2 {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    color: white;
+
+    @media (max-width: 860px){
+        font-size: 15px;
+        margin-left: 10px;
+      }
+  }
 `
 
 
@@ -48,30 +56,30 @@ const PrimarySearchAppBar = ({ totalItems }) => {
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
           <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
-            <img src={logo} alt="commerce.js" height="25px" className={classes.image} /> Aidan Paul Music
+            <img src={logo} alt="commerce.js" height="55px" className={classes.image} />
           </Typography>
           <NavBarCenter>
             <Typography component={Link} to="/updates" variant="h6" className={classes.title} color="inherit">
-              Updates
+              <h2>Updates</h2>
             </Typography>
             <Typography component={Link} to="/bookings" variant="h6" className={classes.title} color="inherit">
-              Bookings
+              <h2>Bookings</h2>
             </Typography>
             <Typography component={Link} to="/gallery" variant="h6" className={classes.title} color="inherit">
-              Gallery
+              <h2>Gallery</h2>
             </Typography>
           </NavBarCenter>
 
           <div className={classes.grow} />
 
           {location.pathname === '/' && (
-          <div className={classes.button}>
-            <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
-              <Badge badgeContent={totalItems} color="secondary">
-                <ShoppingCart />
-              </Badge>
-            </IconButton>
-          </div>
+            <div className={classes.button}>
+              <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
+                <Badge badgeContent={totalItems} color="secondary">
+                  <ShoppingCart />
+                </Badge>
+              </IconButton>
+            </div>
           )}
         </Toolbar>
       </AppBar>

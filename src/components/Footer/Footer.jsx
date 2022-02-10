@@ -1,12 +1,11 @@
-import { Facebook, GitHub, Instagram, MailOutline, Phone, Room, Twitter } from '@mui/icons-material';
+import { Facebook, Instagram, MailOutline, Room } from '@mui/icons-material';
 import styled from 'styled-components';
 import React from 'react';
 import { mobile } from '../responsive';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BottomNavigation, Card } from '@material-ui/core';
 import { Button } from 'reactstrap';
 import { Layout } from 'antd';
-import { Footer } from 'antd/lib/layout/layout';
+import { LinkTwoTone, YouTube } from '@material-ui/icons';
 
 const Left = styled.div`
     flex: 1;  
@@ -16,6 +15,11 @@ const Left = styled.div`
     flex-direction: column;
     z-index: 999;
     color: white;
+
+    @media (max-width: 860px){
+      width: 100%;
+      justify-content: center;
+    }
   `;
 
 const Logo = styled.h1`
@@ -50,7 +54,11 @@ const Right = styled.div`
     padding: 0px;
     z-index: 999;
     color: white;
-    ${mobile({ backgroundColor: '#ebe8e8' })}
+    /* ${mobile({ backgroundColor: '#ebe8e8' })} */
+
+    @media (max-width: 860px){
+      display: none;
+    }
 `;
 
 const Center = styled.div`
@@ -60,6 +68,10 @@ const Center = styled.div`
     color: white;
     margin-top: -40px;
     ${mobile({ display: 'none' })}
+
+    @media (max-width: 860px){
+      display: none;
+    }
 `;
 
 const Title = styled.h3`
@@ -76,11 +88,7 @@ const List = styled.ul`
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-`;
-
-const ListItem = styled.li`
-    width: 50%;
-    margin-bottom: 10px;
+    align-content: space-between;
 `;
 
 const ContactItem = styled.div`
@@ -90,61 +98,71 @@ const ContactItem = styled.div`
     ${mobile({ justifyContent: 'center', fontSize: '20px' })}
 `;
 
-const Payment = styled.img`
-    width: 60%;
-    ${mobile({ width: '100%', justifyContent: 'center', display: 'flex' })};
-`;
-
+const FooterContainer = styled.div`
+  position: relative;
+  width: 100%;
+  display: flex;
+  margin-top: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  backdrop-filter: blur(10px);
+`
 
 const FooterComponent = () => (
   <Layout>
-    <Footer>
-      <BottomNavigation>
-        <Left>
-          <Logo>Aidan Paul Music</Logo>
-          <Desc>
-            <p>
-            Aidan Paul Music is founded by Aidan Neal.... etc, etc, etc
-            </p>
-          </Desc>
-          <SocialContainer>
-            <SocialIcon color="3B5999">
-              <Facebook />
-            </SocialIcon>
-            <SocialIcon color="E4405F">
-              <Instagram />
-            </SocialIcon>
-            <SocialIcon color="55ACEE">
-              <Twitter />
-            </SocialIcon>
-            <SocialIcon color="000000">
-              <GitHub />
-            </SocialIcon>
-          </SocialContainer>
-        </Left>
-        <Center>
-          <Title>Links</Title>
-          <List>
-          <Button 
-          aria-label="Visit Etsy" 
-          target="_blank" 
-          href="" 
-          cursor="pointer"
-          color="dark"
-          >Etsy</Button>
+    <FooterContainer>
+      <Left>
+        <Logo>Aidan Paul Music</Logo>
+        <Desc>
+          <p>
+            Aidan Paul is a musician and artist from Miami, Fl. He currently divides his time dancing in studios, singing for various gigs, and being an overall awesome guy.
+          </p>
+        </Desc>
+        <SocialContainer>
+          <SocialIcon color="3B5999">
+            <Facebook onClick={() => window.open('https://www.facebook.com/ItsAidanPaul', '_blank')} />
+          </SocialIcon>
+          <SocialIcon color="E4405F" >
+            <Instagram onClick={() => window.open('https://www.instagram.com/aidanpaulmusic/', '_blank')} />
+          </SocialIcon>
+          <SocialIcon color="55ACEE" >
+            <YouTube onClick={() => window.open('https://www.youtube.com/channel/UCNhe2SJj5CVBkdtKWSj8HEw?view_as=subscriber', '_blank')} />
+          </SocialIcon>
+          <SocialIcon color="000000">
+            <LinkTwoTone onClick={() => window.open('https://linktr.ee/APMedia', '_blank')} />
+          </SocialIcon>
+        </SocialContainer>
+      </Left>
+      <Center>
+        <Title>Links</Title>
+        <List>
+          <Button
+            style={{ marginBottom: "5px" }}
+            aria-label="Headshot"
+            target="_blank"
+            href="https://www.aidanpaulmusic.com/_files/ugd/e80a20_8e1c035cb7df43339fe0a1eda94ee802.pdf"
+            cursor="pointer"
+            color="dark"
+          >Headshot</Button>
+          <Button
+            aria-label="Resume"
+            target="_blank"
+            href="https://www.aidanpaulmusic.com/_files/ugd/e80a20_7b2098ce624545b0a4038a43404f40e1.pdf"
+            cursor="pointer"
+            color="dark"
+          >Resume</Button>
         </List>
-        </Center>
-        <Right>
-          <Title>Contact</Title>
-          <ContactItem>
-            <Room style={{ marginRight: '10px' }} />United States
-          </ContactItem>
-          <ContactItem>
-            <MailOutline style={{ marginRight: '10px' }} />AidanPaulMedia@gmail.com
-          </ContactItem>
-        </Right>
-      </BottomNavigation>
-    </Footer>
+      </Center>
+      <Right>
+        <Title>Contact</Title>
+        <ContactItem>
+          <Room style={{ marginRight: '10px' }} />United States
+        </ContactItem>
+        <ContactItem>
+          <MailOutline style={{ marginRight: '10px' }} />AidanPaulMedia@gmail.com
+        </ContactItem>
+      </Right>
+    </FooterContainer>
   </Layout>
 );
 

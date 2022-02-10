@@ -5,6 +5,8 @@ const drawerWidth = 0;
 export default makeStyles((theme) => ({
   appBar: {
     boxShadow: 'none',
+    backgroundColor: '#05050537',
+    backdropFilter: 'blur(10px)',
     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
@@ -13,7 +15,6 @@ export default makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    alignItems: 'center',
     display: 'flex',
     textDecoration: 'none',
   },
@@ -49,7 +50,6 @@ export default makeStyles((theme) => ({
     position: 'absolute',
     pointerEvents: 'none',
     display: 'flex',
-    alignItems: 'center',
     justifyContent: 'center',
   },
   inputRoot: {

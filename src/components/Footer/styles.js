@@ -1,8 +1,5 @@
-
-
 const theme = createTheme({
     components: {
-        
         MuiButton: {
         styleOverrides: {
           // Name of the slot

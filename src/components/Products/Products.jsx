@@ -120,7 +120,7 @@ const Products = ({ products, onAddToCart }) => {
   return (
     <main className={classes.content}>
       <div id="toolbar" className={classes.toolbar} />
-      {/* <ParticleBackground /> */}
+      <ParticleBackground />
       <div class="wrapper">
         <GridContainer>
           <SectionTitle> Sticky Art </SectionTitle>

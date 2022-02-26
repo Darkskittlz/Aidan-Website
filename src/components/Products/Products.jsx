@@ -4,11 +4,9 @@ import Product from "./Product/Product";
 import useStyles from './styles';
 import styled from "styled-components";
 import ParticleBackground from '../../ParticleBackground';
-import Music from '../Plugins/Music';
 import FooterComponent from '../Footer/Footer';
-import AidanProfile from '../../assets/AidanProfile.jpg';
-import Video from '../Plugins/Video';
 import './products.css'
+
 
 const Row = styled.div`
   display: flex;
@@ -18,9 +16,7 @@ const Row = styled.div`
   border: 2px solid black;
   height: 400px;
   margin-top: 20px;
-  margin-bottom: 100px;
-
-
+  margin-bottom: 20px;
 
   @media (max-width: 768px){
       display: flex;
@@ -33,20 +29,23 @@ const Row = styled.div`
 const Col = styled.div`
   display: flex;
   z-index: 999;
-  width: 50%;
+  width: 30%;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  margin-left: 10px;
 
   @media (max-width: 768px){
       width: 100%;
     }
 
   img {
-    width: 100%;
+    width: 77%;
+    height: 400px;
     display: flex;
     align-content: center;
-    justify-content: start;
     border-radius: 10px;
     opacity: 1;
-    backdrop-filter: blur(10px);
 
     @media (max-width: 768px){
       margin-top: 10px;
@@ -59,7 +58,7 @@ const Col2 = styled.div`
   border-radius: 10px;
   opacity: 0.9;
   backdrop-filter: blur(10px);
-  width: 48%;
+  width: 68%;
   flex-direction: column;
   z-index: 999;
   height: 100%;
@@ -76,6 +75,7 @@ const Col2Text = styled.div`
   flex-direction: column;
   width: 100%;
   z-index: 999;
+  margin-left: 10px;
   justify-content: center;
   align-content: start;
 
@@ -99,7 +99,7 @@ const GridContainer = styled.div`
   opacity: 0.9;
   backdrop-filter: blur(10px);
   border-radius: 10px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   margin-bottom: 50px;
 `
 
@@ -114,39 +114,14 @@ const SectionTitle = styled.h2`
 const Products = ({ products, onAddToCart }) => {
   const classes = useStyles();
 
+  if (!products.length) return <p>Loading...</p>;
+
 
   return (
     <main className={classes.content}>
       <div id="toolbar" className={classes.toolbar} />
-      <ParticleBackground />
+      {/* <ParticleBackground /> */}
       <div class="wrapper">
-        <Video />
-        <Row>
-          <Col>
-            <img src={AidanProfile} alt="headshot" />
-          </Col>
-          <Col2>
-            <Col2Text>
-              <h1> Bio </h1>
-              <h3>
-                Eccentric Miami artist Aidan Paul Neal is manifesting a vibrant career in the tropics
-                of South Florida as he draws influence from every spectrum of the arts. As a trained
-                dancer he creatively fuses all the facets of a true performing artist. When it comes to
-                his own sound, AP derives inspiration from the likes of Tom Misch, Justin Timberlake,
-                Bruno Mars, and The Miss Ella Fitzgerald.
-              </h3>
-            </Col2Text>
-            <br />
-            <Col2Text>
-              <h3>
-                Born with his feet in the sand, Aidan Paul also has his heart in Santa Cruz California,
-                where he grew up as a child. "I am at peace whenever I find myself exploring the Redwood
-                forests of Felton, or climbing the giant banyan trees in Miami-Dade.
-              </h3>
-            </Col2Text>
-          </Col2>
-        </Row>
-        <Music />
         <GridContainer>
           <SectionTitle> Sticky Art </SectionTitle>
           <Grid container justify="center" spacing={2}>
@@ -156,9 +131,6 @@ const Products = ({ products, onAddToCart }) => {
               </Grid>
             ))}
           </Grid>
-          <br />
-          <br />
-          <br />
         </GridContainer>
       </div>
       <div class="push"></div>

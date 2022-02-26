@@ -6,19 +6,24 @@ import FooterComponent from '../Footer/Footer';
 import { Button } from 'reactstrap';
 import emailjs from '@emailjs/browser';
 import './bookings.css';
-
+import pdf from '../../assets/aidanResume.pdf';
+import headshot from '../../assets/Headshot-Aidan.jpeg';
 
 const Row = styled.div`
   display: flex;
   flex-direction: row;
   z-index: 999;
   border: 2px solid black;
+  width: 97%;
+  margin-left: -10px;
 
   @media (max-width: 860px){
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
       justify-content: center;
+      margin-left: -10px;
+      width: 96%;
     }
 `
 
@@ -46,10 +51,8 @@ const Col = styled.div`
 `
 
 const Col2 = styled.div`
-  margin-top: 20px;
   display: flex;
   border-radius: 10px;
-  margin-left: 20px;
   opacity: 0.9;
   backdrop-filter: blur(10px);
   width: 100%;
@@ -58,23 +61,62 @@ const Col2 = styled.div`
   justify-content: center;
   align-content: center;
   z-index: 999;
-  @media (max-width: 860px){
-    margin-left: 0;
-    height: 200px;
+  /* background-color: black; */
+
+  h1 {
+    color: white;
+    text-align: center;
+    font-size: 100px;
+    font-weight: 600;
+    margin-bottom: 70px;
+    font-family: 'Dancing Script', cursive;
+  }
+
+  h2 {
+    color: white;
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-align: center;
+    font-family: 'Playfair Display', cursive;
+  }
+
+  @media (max-width: 900px){
+    height: 500px;
+    width: 100%;
+    margin-left: 0px;
+
+
+    h1 {
+      margin-top: 100px;
+      margin-bottom: 25px;
+      font-size: 50px;
+    }
+
+    h2 {
+      font-size: 15px;
+    }
   }
 `
 
 
+
+
 const ButtonContainer = styled.div`
-  display: flex; 
-  width: 100%;
+  display: grid;
+  grid-template-columns: 100px 100px;
+  margin-top: 80px; 
   justify-content: center;
+  grid-gap: 10px;
 `
 
 const ContactForm = styled.div`
   display: flex; 
   justify-content: center;
   flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+
 
     h2 {
         color: white;
@@ -98,6 +140,14 @@ const ContactForm = styled.div`
         color: white;
         display: flex;
         justify-content: center;
+    }
+
+    @media (max-width: 900px){
+      width: 90%;
+
+      h2 {
+        font-size: 70px;
+      }
     }
 
 `
@@ -148,11 +198,14 @@ const Bookings = () => {
       <div class="wrapper">
         <Row>
           <Col2>
+            <h1>For Bookings: </h1>
+            <h2>AidanPaulMedia@gmail.com</h2>
+            <h2>786.424.0227</h2>
             <ButtonContainer>
               <Button
                 aria-label="Headshot"
                 target="_blank"
-                href="https://www.aidanpaulmusic.com/_files/ugd/e80a20_8e1c035cb7df43339fe0a1eda94ee802.pdf"
+                href={headshot}
                 cursor="pointer"
                 color="dark"
                 margin-right="20px"
@@ -161,7 +214,7 @@ const Bookings = () => {
               <Button
                 aria-label="Resume"
                 target="_blank"
-                href="https://www.aidanpaulmusic.com/_files/ugd/e80a20_7b2098ce624545b0a4038a43404f40e1.pdf"
+                href={pdf}
                 cursor="pointer"
                 color="dark"
               >Resume</Button>
@@ -175,18 +228,8 @@ const Bookings = () => {
           <Col>
             <img src="https://static.wixstatic.com/media/e80a20_1ea23104b49343b592cba7a5df8b0d48~mv2.png/v1/fill/w_490,h_660,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01/e80a20_1ea23104b49343b592cba7a5df8b0d48~mv2.webp" alt="img" />
           </Col>
-          <br />
-          <br />
-          <br />
-          <br />
-          <Col2>
+          <Col2 id="contact">
             <Contact />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
           </Col2>
         </Row>
       </div>

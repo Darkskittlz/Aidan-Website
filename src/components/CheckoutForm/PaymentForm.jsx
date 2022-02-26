@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Typography, Button, Divider } from '@material-ui/core';
 import { Elements, CardElement, ElementsConsumer } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -6,6 +6,31 @@ import { loadStripe } from '@stripe/stripe-js';
 import Review from './Review';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+
+function sanitizedLineItems(lineItems) {
+  
+  return lineItems.reduce((data, lineItem) => {
+    const item = data;
+    let variantData = null;
+
+    if (lineItem.selected_options.length) {
+      variantData = {
+        [lineItem.selected_options[0].group_id]: lineItem.selected_options[0].option_id,
+      };
+    }
+
+    item[lineItem.id] = {
+      quantity: lineItem.quantity,
+      variants: variantData,
+      ...data
+    };
+
+    return item;
+
+
+  }, {});
+};
+
 
 const PaymentForm = ({ checkoutToken, nextStep, backStep, shippingData, onCaptureCheckout }) => {
   const handleSubmit = async (event, elements, stripe) => {

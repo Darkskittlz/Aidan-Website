@@ -25,6 +25,7 @@
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.11.5",
     "react-image-gallery": "^1.2.7",
+    "react-modal": "^3.14.4",
     "react-photo-gallery": "^8.0.0",
     "react-player": "^2.9.0",
     "react-router": "^5.2.0",

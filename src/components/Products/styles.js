@@ -16,6 +16,7 @@ export default makeStyles((theme) => ({
     fontWeight: 500,
     fontSize: 22,
     color: "black",
+    backgroundColor: "black"
   },
   title: {
     textAlign: "center",
@@ -40,4 +41,7 @@ export default makeStyles((theme) => ({
     borderBottom: "2px solid lightgray",
     width: "100%",
   },
+  shoppingCart: {
+    backgroundColor: "black"
+  }
 }));

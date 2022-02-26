@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { CssBaseline } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Navbar, Products, Cart, Updates, Gallery } from './components';
+import { Navbar, Products, Cart, Updates } from './components';
 import Checkout from './components/CheckoutForm/Checkout/Checkout';
 import { commerce } from './lib/commerce';
 import Bookings from './components/Bookings/Bookings';
+import Home from './components/Home/Home';
 
 const App = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -79,7 +80,7 @@ const App = () => {
         <Navbar totalItems={cart.total_items} handleDrawerToggle={handleDrawerToggle} />
         <Switch>
           <Route exact path="/">
-            <Products products={products} onAddToCart={handleAddToCart} handleUpdateCartQty />
+            <Home />
           </Route>
           <Route exact path="/updates">
             <Updates />
@@ -88,7 +89,7 @@ const App = () => {
             <Bookings />
           </Route>
           <Route exact path="/gallery">
-            <Gallery />
+            <Products products={products} onAddToCart={handleAddToCart} handleUpdateCartQty />
           </Route>
           <Route exact path="/cart">
             <Cart cart={cart} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart} />

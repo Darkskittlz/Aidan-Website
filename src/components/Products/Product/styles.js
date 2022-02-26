@@ -13,9 +13,13 @@ export default makeStyles(() => ({
   cardActions: {
     display: 'flex',
     justifyContent: 'flex-end',
+    zIndex: '999',
+    color: "black"
   },
   cardContent: {
     display: 'flex',
     justifyContent: 'center',
+    zIndex: '999',
+    color: 'black'
   },
 }));

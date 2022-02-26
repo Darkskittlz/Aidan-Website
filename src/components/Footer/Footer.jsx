@@ -47,6 +47,12 @@ const SocialIcon = styled.div`
     justify-content: center;
     margin-right: 20px;
     margin-bottom: 5px;
+    filter: invert(1);
+    display: none;
+
+    @media (max-width: 860px){
+      display: flex;
+    }
 `;
 
 const Right = styled.div`

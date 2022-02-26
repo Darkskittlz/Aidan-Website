@@ -55,6 +55,9 @@ export default makeStyles((theme) => ({
   inputRoot: {
     color: 'inherit',
   },
+  button: {
+    color: 'white'
+  },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon

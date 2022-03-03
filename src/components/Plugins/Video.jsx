@@ -31,6 +31,7 @@ const VideoContainer = styled.div`
       margin-top: 30px;
       background-size: cover;
       margin: 0;
+      display: none;
     }
 `
 

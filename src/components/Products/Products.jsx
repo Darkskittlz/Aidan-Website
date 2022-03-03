@@ -99,8 +99,25 @@ const GridContainer = styled.div`
   opacity: 0.9;
   backdrop-filter: blur(10px);
   border-radius: 10px;
-  /* margin-top: 10px; */
   margin-bottom: 50px;
+`
+
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  button {
+    padding: 10px;
+    background-color: #f012dd;
+    border-radius: 10px;
+  }
+
+  a {
+    text-decoration: none;
+  }
 `
 
 const SectionTitle = styled.h2`
@@ -124,6 +141,9 @@ const Products = ({ products, onAddToCart }) => {
       <div class="wrapper">
         <GridContainer>
           <SectionTitle> Sticky Art </SectionTitle>
+          <Container>
+            <a href="https://spaces.chec.io/38902"><button>Store</button></a>
+          </Container>
           <Grid container justify="center" spacing={2}>
             {products.map((product) => (
               <Grid key={product.id} item xs={12} sm={7} md={5} lg={4}>

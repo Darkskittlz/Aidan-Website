@@ -75,7 +75,7 @@ const PrimarySearchAppBar = ({ totalItems }) => {
       <MenuItem>
         <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
           <Badge badgeContent={totalItems} color="secondary">
-            <ShoppingCart />
+            <ShoppingCart/>
           </Badge>
         </IconButton>
         <p>Cart</p>

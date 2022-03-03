@@ -5,6 +5,7 @@ export default makeStyles((theme) => ({
   content: {
     height: '100%',
     flexGrow: 1,
+    // backgroundColor: '#111',
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing(3),
     paddingTop: theme.spacing(0.5),
@@ -14,7 +15,6 @@ export default makeStyles((theme) => ({
     marginBottom: theme.spacing(20),
     fontWeight: 500,
     fontSize: 22,
-    color: "black",
   },
   title: {
     textAlign: "center",

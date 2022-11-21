@@ -30,7 +30,7 @@
     "react-player": "^2.9.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "5.0.1",
     "react-slideshow-image": "^3.6.0",
     "react-spotify-player": "^1.0.4",
     "react-stripe-elements": "^6.1.2",
